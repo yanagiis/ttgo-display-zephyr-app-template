@@ -1,11 +1,19 @@
+&pinctrl {
+	spim3_miso_gpio0: spim3_miso_gpio0 {
+		pinmux = <SPIM3_MISO_GPIO0>;
+	};
+
+	spim3_mosi_gpio19: spim3_mosi_gpio19 {
+		pinmux = <SPIM3_MOSI_GPIO19>;
+	};
+};
+
 &spi3 {
 	status = "okay";
 	#address-cells = <1>;
 	#size-cells = <0>;
-	miso-pin = <0>;
-	mosi-pin = <19>;
-	sclk-pin = <18>;
-	csel-pin = <5>;
+	pinctrl-0 = <&spim3_miso_gpio0 &spim3_mosi_gpio19
+		     &spim3_sclk_gpio18 &spim3_csel_gpio5>;
 
 	/* Sitronix ST7789V LCD */
 	st7789v: st7789v@1 {
