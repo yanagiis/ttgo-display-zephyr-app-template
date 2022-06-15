@@ -15,6 +15,8 @@ void main(void)
 	uint32_t count = 0U;
 	char count_str[11] = { 0 };
 	const struct device *display_dev, *gpio0;
+	lv_obj_t *hello_world_label;
+	lv_obj_t *count_label;
 
 	display_dev = device_get_binding("ST7789V");
 	if (!device_is_ready(display_dev)) {
